@@ -16,14 +16,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { NoteComponent } from './note/note.component';
+// custom app services
+import { NotesService } from './services/notes.service';
+import { AuthenticationService } from './services/authentication.service';
 
-import { NotesService } from './notes.service';
+// login component newly created will be used for routing
+import { LoginComponent } from './login/login.component';
+
+// angular router library - module
+import { RouterModule, Routes } from '@angular/router';
+// routing path to be mentioned here
+const appRoute: Routes = [
+  { path: 'login', component: LoginComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NoteComponent
+    NoteComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +48,13 @@ import { NotesService } from './notes.service';
     MatButtonModule,
     MatCardModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoute)
   ],
-  providers: [NotesService],
+  providers: [
+    NotesService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

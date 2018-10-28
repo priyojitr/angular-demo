@@ -2,8 +2,15 @@
 <app-header></app-header>
 <!-- <app-note></app-note> -->
 
+<!-- output of routers should be within this tag
+    this acts as a placeholder - all routes are rendered here
+-->
+<router-outlet></router-outlet>
+
+
+<!-- TODO: move below commented code to different component (e.g: dashboard comp) -->
 <!-- Note Taker Component -->
-<mat-expansion-panel class="keep-c-note-taker-expansion-panel">
+<!-- <mat-expansion-panel class="keep-c-note-taker-expansion-panel">
     <mat-expansion-panel-header>
         <mat-panel-title>
             Take a Note
@@ -21,10 +28,10 @@
             <button mat-button (click)="takeNote()">Done</button>
         </div>
     </div>
-</mat-expansion-panel>
+</mat-expansion-panel> -->
 
 <!-- list of all notes (card layout) -->
-<div class="keep-note-container">
+<!-- <div class="keep-note-container">
     <mat-card *ngFor="let note of notes">
         <mat-card-header>
             <mat-card-title>
@@ -35,4 +42,4 @@
             {{note.text}}
         </mat-card-content>
     </mat-card>
-</div>
+</div> -->

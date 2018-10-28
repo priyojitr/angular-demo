@@ -1,0 +1,16 @@
+<!-- login form to be rendered -->
+
+<div class="login-c-form-wrapper">
+  <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+    <label form="username">Username:</label>
+    <br>
+    <input type="text" name="username" [(ngModel)]="username" #userName="ngModel">
+    <br>
+    <label form="password">Password:</label>
+    <br>
+    <input type="password" name="password" [(ngModel)]="password" #userPassword="ngModel">
+    <br>
+    <button type="submit">Submit</button>
+    <strong>Not authorized</strong>
+  </form>
+</div>
