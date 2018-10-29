@@ -5,9 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 // angular material modules
-import { MatToolbarModule,MatToolbar } from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatFormFieldModule, MatFormField } from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -19,15 +19,21 @@ import { NoteComponent } from './note/note.component';
 // custom app services
 import { NotesService } from './services/notes.service';
 import { AuthenticationService } from './services/authentication.service';
+import { RouterService } from './services/router.service';
 
-// login component newly created will be used for routing
+// login,dashboard component newly created will be used for routing
 import { LoginComponent } from './login/login.component';
 
 // angular router library - module
 import { RouterModule, Routes } from '@angular/router';
+
+// dashboard component newly created
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { from } from 'rxjs';
 // routing path to be mentioned here
 const appRoute: Routes = [
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({
@@ -35,7 +41,8 @@ const appRoute: Routes = [
     AppComponent,
     HeaderComponent,
     NoteComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,8 @@ const appRoute: Routes = [
   ],
   providers: [
     NotesService,
-    AuthenticationService
+    AuthenticationService,
+    RouterService
   ],
   bootstrap: [AppComponent]
 })

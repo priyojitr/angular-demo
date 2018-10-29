@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // import authentication service
 import { AuthenticationService } from '../services/authentication.service';
+// import router service
+import { RouterService } from '../services/router.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,8 @@ export class LoginComponent implements OnInit {
 
   public bearerToken: any;
 
-  constructor(private _authService: AuthenticationService) { }
+  constructor(private _authService: AuthenticationService,
+    public routerService: RouterService) { }
 
   ngOnInit() {
   }
@@ -25,7 +28,8 @@ export class LoginComponent implements OnInit {
         // this token need to be stored in browser local storage used for subsequent server calls
         this.bearerToken = res['token'];
         // set bearer token to browser
-        this._authService.setBearer(this.bearerToken);
+        this._authService.setBearerToken(this.bearerToken);
+        this.routerService.routeToDashboard();
       }
     );
   }

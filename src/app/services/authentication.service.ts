@@ -14,9 +14,9 @@ export class AuthenticationService {
     return this.http.post(this.authUrl, formData);
   }
 
-  setBearer(token) {
+  setBearerToken(token) {
     // setting bearer token of server to browser local storage
-    localStorage.setItem('bearerToken',token);
+    localStorage.setItem('bearerToken', token);
   }
 
   getBearerToken() {
