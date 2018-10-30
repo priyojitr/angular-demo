@@ -12,4 +12,9 @@ export class RouterService {
     // navigating to dashboard component
     this.router.navigate(['dashboard']);
   }
+
+  routeToLogin() {
+    // navigate to login
+    this.router.navigate(['login']);
+  }
 }

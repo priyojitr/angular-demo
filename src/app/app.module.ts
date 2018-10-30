@@ -29,11 +29,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 // dashboard component newly created
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { from } from 'rxjs';
+// import { from } from 'rxjs';
+
+// importing the gaurd
+import { CanActivateRouterGuard } from './can-activate-router.guard';
 // routing path to be mentioned here
+// gaurds should be added to respective rouytes that needs to be guarded
 const appRoute: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateRouterGuard] }
+  // the guards passed to dashboard route is to protect unathorized access
 ];
 
 @NgModule({
@@ -61,7 +66,8 @@ const appRoute: Routes = [
   providers: [
     NotesService,
     AuthenticationService,
-    RouterService
+    RouterService,
+    CanActivateRouterGuard
   ],
   bootstrap: [AppComponent]
 })

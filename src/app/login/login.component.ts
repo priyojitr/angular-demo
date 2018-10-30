@@ -12,6 +12,7 @@ import { RouterService } from '../services/router.service';
 export class LoginComponent implements OnInit {
 
   public bearerToken: any;
+  public submitMessage: string;
 
   constructor(private _authService: AuthenticationService,
     public routerService: RouterService) { }
@@ -24,12 +25,14 @@ export class LoginComponent implements OnInit {
     // user service for http call
     this._authService.authenticateUser(formFields.value).subscribe(
       res => {
-        console.log(res['token']);
         // this token need to be stored in browser local storage used for subsequent server calls
         this.bearerToken = res['token'];
         // set bearer token to browser
         this._authService.setBearerToken(this.bearerToken);
         this.routerService.routeToDashboard();
+      },
+      err => {
+        this.submitMessage = err.error.message;
       }
     );
   }
