@@ -12,10 +12,15 @@ import { RouterService } from '../services/router.service';
 export class LoginComponent implements OnInit {
 
   public bearerToken: any;
-  public submitMessage: string;
+  public errorMessage: string;
+  public username: string;
+  public password: string;
 
   constructor(private _authService: AuthenticationService,
-    public routerService: RouterService) { }
+    public routerService: RouterService) {
+      this.username = '';
+      this.password = '';
+    }
 
   ngOnInit() {
   }
@@ -32,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.routerService.routeToDashboard();
       },
       err => {
-        this.submitMessage = err.error.message;
+        this.errorMessage = err.error.message;
       }
     );
   }

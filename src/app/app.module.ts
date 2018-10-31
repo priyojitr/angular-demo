@@ -37,6 +37,7 @@ import { CanActivateRouterGuard } from './can-activate-router.guard';
 // gaurds should be added to respective rouytes that needs to be guarded
 const appRoute: Routes = [
   { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent, canActivate: [CanActivateRouterGuard] }
   // the guards passed to dashboard route is to protect unathorized access
 ];

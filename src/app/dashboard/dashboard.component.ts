@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.notesService.getNotes().subscribe(
       data => this.notes = data,
+      // error while getting all notes
       err => console.log(err)
     );
   }

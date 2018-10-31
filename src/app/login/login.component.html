@@ -1,7 +1,28 @@
-<!-- login form to be rendered -->
-
-<div class="login-c-form-wrapper">
-  <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+<!-- login form using material design -->
+<div class="login-c-card">
+    <mat-card-title>Login</mat-card-title>
+    <div class="login-c-form">
+        <br>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <br>
+        <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+        <mat-form-field>
+            <input matInput [(ngModel)]="username" name="username" #userName="ngModel"
+                class="username" type="text" placeholder="Username">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput [(ngModel)]="password" name="password" #userPassword="ngModel"
+                class="password" type="password" placeholder="Password">
+        </mat-form-field>
+        <br>
+        <div class="login-c-done-btn-wrapper">
+            <button mat-button>Submit</button>
+        </div>
+        </form>
+    </div>
+</div>
+  <!-- <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
     <label form="username">Username:</label>
     <br>
     <input type="text" name="username" [(ngModel)]="username" #userName="ngModel">
@@ -13,5 +34,4 @@
     <button type="submit">Submit</button>
     <br>
     <strong *ngIf="submitMessage">{{ submitMessage }}</strong>
-  </form>
-</div>
+  </form> -->
